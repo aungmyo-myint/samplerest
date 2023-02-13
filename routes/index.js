@@ -5,7 +5,7 @@ const router = express.Router();
 router.route("/").get(controllers.getStart);
 
  
-router.route("/getUser").get(controllers.getUsers);
+router.route("/getUsers").get(controllers.getUsers);
 
 
 router.route("/txn").get(controllers.downloadData).post(controllers.uploadData);
