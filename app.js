@@ -7,11 +7,12 @@ const errorHandler = require("./utils/errorHandler.js");
 
 app.use(express.json());
 app.use("/", router);
+app.use(errorHandler);
 
 app.all("*", (req, res, next) => {
  next(new AppError(`The URL ${req.originalUrl} does not exists`, 404));
 });
-app.use(errorHandler);
+
 
 const PORT = 5000;
 app.listen(PORT, () => {
