@@ -8,7 +8,6 @@ const dbConnection = mysql.createConnection({
  database: "testapp" || process.env.db,
 });
 
-
 dbConnection.connect(err=> console.log(err) );
 
 module.exports = dbConnection;

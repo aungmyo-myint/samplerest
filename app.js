@@ -14,9 +14,6 @@ app.all("*", (req, res, next) => {
 });
 
 
-const PORT = 5000 || process.env.PORT ;
-app.listen(PORT, () => {
- console.log(`server running on port ${PORT}`);
-});
+app.listen(5000 || process.env.PORT , () => {  console.log(`server running on port 5000/ ${process.env.PORT}`); });
 
 module.exports = app;
