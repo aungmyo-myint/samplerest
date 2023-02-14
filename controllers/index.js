@@ -15,9 +15,7 @@ exports.getStart = (req, res, next) => {
   res.status(200).json({
     status: "success",
     message: "hello world"
-  });
-  
-  res.end('Hello World!')
+  }).end() 
 };
 
 
@@ -73,9 +71,10 @@ exports.getUsers = (req, res, next) => {
       status: "success",
       length: data?.length,
       data: data,
-    });
+    }).end();
+
   });
-  res.end();
+  
 };
 
 
@@ -92,7 +91,7 @@ exports.uploadData = (req, res, next) => {
       res.status(201).json({
         status: "success",
         message: "upload success!",
-      });
+      }).end();
     }
   );
  };
