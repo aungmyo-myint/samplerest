@@ -12,7 +12,9 @@ exports.getStart = (req, res, next) => {
   res.status(200).json({
     status: "success",
     message: "hello world"
-  })
+  });
+  
+  res.send('Hello World!')
 };
 
 
