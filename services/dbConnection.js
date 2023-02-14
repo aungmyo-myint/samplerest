@@ -9,7 +9,6 @@ const dbConnection = mysql.createConnection({
 });
 
 
-
-dbConnection.connect();
+dbConnection.connect(err=> console.log(err) );
 
 module.exports = dbConnection;
