@@ -5,12 +5,12 @@ const router = express.Router();
 router.route("/").get(controllers.getStart);
 
  
-router.route("/getUsers").get(controllers.getUsers);
+router.route("/api/getUsers").get(controllers.getUsers);
 
 
-router.route("/txn").get(controllers.downloadData).post(controllers.uploadData);
+router.route("/api/txn").get(controllers.downloadData).post(controllers.uploadData);
 router
- .route("/txn:id")
+ .route("/api/txn:id")
  .get(controllers.downloadData)
  .put(controllers.uploadData);
 
