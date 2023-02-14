@@ -9,12 +9,15 @@ app.use(bodyParser.urlencoded({
 
 
 exports.getStart = (req, res, next) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+
   res.status(200).json({
     status: "success",
     message: "hello world"
   });
   
-  res.send('Hello World!')
+  res.end('Hello World!')
 };
 
 
@@ -22,6 +25,9 @@ exports.updateTodo = (req, res, next) => {
     if (!req.params.id) {
       return next(new AppError("No todo id found", 404));
     }
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+
     conn.query(
       "UPDATE todolist SET status='completed' WHERE id=?",
       [req.params.id],
@@ -33,6 +39,7 @@ exports.updateTodo = (req, res, next) => {
         });
       }
     );
+    res.end();
 };
 
 exports.deleteTodo = (req, res, next) => {
@@ -50,6 +57,7 @@ exports.deleteTodo = (req, res, next) => {
         });
       }
     );
+    res.end();
    };
 
 
@@ -57,13 +65,17 @@ exports.deleteTodo = (req, res, next) => {
 exports.getUsers = (req, res, next) => {
   conn.query("SELECT * FROM login_user", function (err, data, fields) {
     if(err) return next(new AppError(err))
+   
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+
     res.status(200).json({
       status: "success",
       length: data?.length,
       data: data,
     });
   });
-
+  res.end();
 };
 
 
