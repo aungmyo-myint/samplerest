@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 
-const dbConnection = mysql.createConnection(process.env.DATABASE_URL)
-console.log('Connected to PlanetScale!')
+const dbConnection = mysql.createConnection( process.env.DATABASE_URL)
+console.log('Connected to db!')
 
 // // const dbConnection = mysql.createConnection({
 // //  host: "localhost" || process.env.ps_host,
@@ -11,6 +11,6 @@ console.log('Connected to PlanetScale!')
 // //  ssl: {}
 // // });
 
-// dbConnection.connect(err=> console.log(err) );
+dbConnection.connect(err=> console.log(err) );
 
 module.exports = dbConnection;
