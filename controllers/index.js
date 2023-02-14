@@ -2,7 +2,6 @@ const conn = require("../services/dbConnection");
 const AppError = require("../utils/AppError");
 
 
-
 exports.getStart = (req, res, next) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
@@ -12,7 +11,6 @@ exports.getStart = (req, res, next) => {
     message: "hello world"
   }).end() 
 };
-
 
 exports.updateTodo = (req, res, next) => {
     if (!req.params.id) {
@@ -51,9 +49,7 @@ exports.deleteTodo = (req, res, next) => {
       }
     );
     res.end();
-   };
-
-
+};
 
 exports.getUsers = (req, res, next) => {
   conn.query("SELECT * FROM login_user", function (err, data, fields) {
@@ -72,8 +68,6 @@ exports.getUsers = (req, res, next) => {
   
 };
 
-
-
 exports.uploadData = (req, res, next) => { 
   if (!req.body) return next(new AppError("No form data found", 404)); 
   const values = req.body.data;  
@@ -86,12 +80,11 @@ exports.uploadData = (req, res, next) => {
       res.status(201).json({
         status: "success",
         message: "upload success!",
+        data: {insertId: data.insertId}
       }).end();
     }
   );
- };
-
-
+};
 
 exports.downloadData = (req, res, next) => {
   conn.query("SELECT * FROM txn", function (err, data, fields) {

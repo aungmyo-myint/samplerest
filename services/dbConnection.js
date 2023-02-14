@@ -1,16 +1,9 @@
 const mysql = require('mysql2');
 
-const dbConnection = mysql.createConnection( process.env.DATABASE_URL)
+const dbURL = 'mysql://root:@localhost:3306/testapp'
+const dbConnection = mysql.createConnection(dbURL || process.env.DATABASE_URL)
 console.log('Connected to db!')
 
-// // const dbConnection = mysql.createConnection({
-// //  host: "localhost" || process.env.ps_host,
-// //  user: "root" || process.env.ps_name,
-// //  password: "" || process.env.ps_pswd,
-// //  database: "testapp" || process.env.ps_db,
-// //  ssl: {}
-// // });
-
-dbConnection.connect(err=> console.log(err) );
+dbConnection.connect(err => {  if(err) console.log(err) } );
 
 module.exports = dbConnection;
