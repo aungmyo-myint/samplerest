@@ -5,7 +5,6 @@ const router = require("./routes");
 const AppError = require("./utils/AppError");
 const errorHandler = require("./utils/errorHandler.js");
 
-
 app.use(express.json());
 app.use("/", router);
 

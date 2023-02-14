@@ -1,5 +1,11 @@
 const conn = require("../services/dbConnection");
 const AppError = require("../utils/AppError");
+const bodyParser = require("body-parser")
+const express = require("express");
+const app = express();
+app.use(bodyParser.urlencoded({
+    extended:true
+}));
 
 
 exports.getStart = (req, res, next) => {
@@ -62,8 +68,8 @@ exports.getUsers = (req, res, next) => {
 
 exports.uploadData = (req, res, next) => { 
   if (!req.body) return next(new AppError("No form data found", 404)); 
-  const values = [req.body.name, "pending"]; 
-  console.log("request body is :", JSON.stringify(req.body));
+  const values = req.body.data;  
+  console.log("request values to push is :", values);
   conn.query( 
     "INSERT INTO txn (cus_name, dob, amount, note, txn_date, login_id) VALUES(?)",
     [values], 
@@ -71,7 +77,7 @@ exports.uploadData = (req, res, next) => {
       if (err) return next(new AppError(err, 500));
       res.status(201).json({
         status: "success",
-        message: "todo created!",
+        message: "upload success!",
       });
     }
   );
@@ -82,8 +88,6 @@ exports.uploadData = (req, res, next) => {
 exports.downloadData = (req, res, next) => {
   conn.query("SELECT * FROM txn", function (err, data, fields) {
     if(err) return next(new AppError(err))
-  //  console.log("data:", data); 
-  //  console.log("fields:", fields);
     res.status(200).json({
       status: "success",
       length: data?.length,
