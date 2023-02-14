@@ -64,8 +64,8 @@ exports.getUsers = (req, res, next) => {
 
     res.status(200).json({
       status: "success",
-      length: data?.length,
-      data: data,
+      // length: data?.length,
+      // data: data,
     }).end();
 
   });
