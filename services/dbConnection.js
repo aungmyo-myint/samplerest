@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 
 const dbConnection = mysql.createConnection({
@@ -6,6 +6,7 @@ const dbConnection = mysql.createConnection({
  user: "root" || process.env.ps_name,
  password: "" || process.env.ps_pswd,
  database: "testapp" || process.env.ps_db,
+ ssl: {}
 });
 
 dbConnection.connect(err=> console.log(err) );
