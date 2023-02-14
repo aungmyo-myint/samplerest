@@ -54,9 +54,6 @@ exports.deleteTodo = (req, res, next) => {
 exports.getUsers = (req, res, next) => {
   conn.query("SELECT * FROM login_user", function (err, data, fields) {
     if(err) return next(new AppError(err))
-   
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
 
     res.status(200).json({
       status: "success",
