@@ -84,7 +84,9 @@ exports.uploadData = (req, res, next) => {
 };
 
 exports.downloadData = (req, res, next) => {
-  conn.query("SELECT * FROM txn", function (err, data, fields) {
+  console.log("params", req.query);
+  if(!req.query.loginId)  return next(new AppError("Missing loginId", 404));
+  conn.query("SELECT * FROM txn where login_id =?", [req.query.loginId], function (err, data, fields) {
     if(err) return next(new AppError(err))
     res.status(200).json({
       status: "success",
@@ -95,3 +97,26 @@ exports.downloadData = (req, res, next) => {
 
 };
 
+exports.deleteData = (req, res, next) => {
+  if (!req.query.txnId || !req.query.loginId) return next(new AppError("No txn id is found", 404));
+  conn.query(
+    "DELETE FROM txn WHERE id=? and login_id=?", [req.query.txnId, req.query.loginId],  
+    function (err, fields) {
+    //   "fields": {
+    //     "fieldCount": 0,
+    //     "affectedRows": 1,
+    //     "insertId": 0,
+    //     "info": "",
+    //     "serverStatus": 2,
+    //     "warningStatus": 0
+    // }
+      if (err) return next(new AppError(err, 500));
+      res.status(201).json({
+        status: "success",
+        message: "Delete successfully",
+        affectedRows: fields.affectedRows
+      });
+    }
+  );
+  
+};

@@ -14,7 +14,10 @@ router
  .get(controllers.downloadData)
  .put(controllers.uploadData);
 
-
+ router.route("/api/txn/drop").post(controllers.deleteData);
+ router
+  .route("/api/txn/drop")
+  .post(controllers.deleteData);
 
 router.route("/test").get(controllers.getStart).post(controllers.getStart);
 router
