@@ -14,6 +14,12 @@ router
  .get(controllers.downloadData)
  .put(controllers.uploadData);
 
+ 
+router.route("/api/groupLoan.m3s").get(controllers.downloadData).post(controllers.uploadData);
+router.route("/api/individualLoan.m3s").get(controllers.downloadData).post(controllers.uploadData);
+router.route("/api/surveyResult.m3s").get(controllers.downloadData).post(controllers.uploadData);
+router.route("/api/customers.m3s").get(controllers.downloadData).post(controllers.uploadData);
+
  router.route("/api/txn/drop").post(controllers.deleteData);
  router
   .route("/api/txn/drop")
