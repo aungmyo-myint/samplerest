@@ -19,7 +19,6 @@ router.route("/skylark-m3s/api/groupLoans.m3s").get(controllers.downloadData).po
 router.route("/skylark-m3s/api/groupLoan.m3s").get(controllers.downloadData).post(controllers.uploadData);
 
 router.route("/skylark-m3s/api/individualLoans.m3s").get(controllers.downloadData).post(controllers.uploadData);
-router.route("/skylark-m3s/api/individualLoan.m3s").get(controllers.downloadData).post(controllers.uploadData);
 
 router.route("/skylark-m3s/api/surveyResults.m3s").get(controllers.downloadData).post(controllers.uploadData);
 router.route("/skylark-m3s/api/surveyResult.m3s").get(controllers.downloadData).post(controllers.uploadData);
@@ -27,7 +26,7 @@ router.route("/skylark-m3s/api/surveyResult.m3s").get(controllers.downloadData).
 router.route("/skylark-m3s/api/customers.m3s").get(controllers.downloadData).post(controllers.uploadData);
 
 router.route("/skylark-m3s/file/upload.m3s").get(controllers.downloadData).post(controllers.uploadData);
-router.route("/skylark-m3s/file/uploads.m3s").get(controllers.downloadData).post(controllers.uploadData);
+
 
  router.route("/api/txn/drop").post(controllers.deleteData);
  router

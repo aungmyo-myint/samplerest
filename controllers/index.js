@@ -70,6 +70,7 @@ exports.uploadData = (req, res, next) => {
   const values = req.body.data;  
   console.log("request values to push is :", values);
   console.log("request body ofo push is :", req.body);
+  console.log("request whole to push is :", req);
   //console.log("all req data is", req)
   // conn.query( 
   //   "INSERT INTO txn (cus_name, dob, amount, note, txn_date, login_id) VALUES(?)",
