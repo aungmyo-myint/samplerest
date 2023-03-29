@@ -71,18 +71,18 @@ exports.uploadData = (req, res, next) => {
   console.log("request values to push is :", values);
   console.log("request body ofo push is :", req.body);
   //console.log("all req data is", req)
-  conn.query( 
-    "INSERT INTO txn (cus_name, dob, amount, note, txn_date, login_id) VALUES(?)",
-    [values], 
-    function (err, data, fields) {
-      if (err) return next(new AppError(err, 500));
-      res.status(201).json({
-        status: "success",
-        message: "upload success!",
-        data: {insertId: data.insertId}
-      }).end();
-    }
-  );
+  // conn.query( 
+  //   "INSERT INTO txn (cus_name, dob, amount, note, txn_date, login_id) VALUES(?)",
+  //   [values], 
+  //   function (err, data, fields) {
+  //     if (err) return next(new AppError(err, 500));
+  //     res.status(201).json({
+  //       status: "success",
+  //       message: "upload success!",
+  //       data: {insertId: data.insertId}
+  //     }).end();
+  //   }
+  // );
 };
 
 exports.downloadData = (req, res, next) => {
