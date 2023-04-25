@@ -67,10 +67,15 @@ exports.getUsers = (req, res, next) => {
 
 exports.uploadData = (req, res, next) => { 
   if (!req.body) return next(new AppError("No form data found", 404)); 
-  const values = req.body.data;  
-  console.log("request values to push is :", values);
-  console.log("request body ofo push is :", req.body);
-  console.log("request whole to push is :", req);
+  //const values = req.body.data;  
+  console.log("request body of push is :", req.body); 
+  console.log("request body data of push is :", req.body.data);
+  res.status(201).json({
+          status: "success",
+          message: "PUSH success!",
+          data: {insertId: "LATER"}
+        }).end();
+
   //console.log("all req data is", req)
   // conn.query( 
   //   "INSERT INTO txn (cus_name, dob, amount, note, txn_date, login_id) VALUES(?)",
