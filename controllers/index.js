@@ -364,7 +364,7 @@ const maxInfo = [
 
 exports.getMaxInfo = (req, res, next) => {
   console.log("Getting info for loan max info")
-  res.json({maxInfo}).end();
+  res.json(maxInfo).end();
 }
 
 exports.getVersion = (req, res, next) => {
