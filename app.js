@@ -14,6 +14,9 @@ app.all("*", (req, res, next) => {
 });
 
 
-app.listen(5000 || process.env.PORT , () => {  console.log(`server running on port 5000/ ${process.env.PORT}`); });
+// app.listen(5000 || process.env.PORT , () => {  console.log(`server running on port 5000/ ${process.env.PORT}`); });
+
+app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'), () => {   console.log('Express server listening on port ' + server.address().port);  });
 
 module.exports = app;
