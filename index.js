@@ -1,6 +1,5 @@
 const express = require("express");
 const http = require('http');
-const cors = require("cors");
 const router = require("./routes");
 const AppError = require("./utils/AppError");
 const errorHandler = require("./utils/errorHandler.js");
