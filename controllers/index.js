@@ -52,16 +52,22 @@ exports.deleteTodo = (req, res, next) => {
 };
 
 exports.getUsers = (req, res, next) => {
-  conn.query("SELECT * FROM login_user", function (err, data, fields) {
-    if(err) return next(new AppError(err))
+  // conn.query("SELECT * FROM login_user", function (err, data, fields) {
+  //   if(err) return next(new AppError(err))
 
-    res.status(200).json({
-      status: "success",
-      length: data?.length,
-      data: data,
-    }).end();
+  //   res.status(200).json({
+  //     status: "success",
+  //     length: data?.length,
+  //     data: data,
+  //   }).end();
 
-  });
+  // });
+
+  res.status(200).json({
+    status: "success",
+    length: data?.length,
+    data: data,
+  }).end();
   
 };
 
@@ -357,6 +363,7 @@ const maxInfo = [
 ];
 
 exports.getMaxInfo = (req, res, next) => {
+  console.log("Getting info for loan max info")
   res.json({maxInfo}).end();
 }
 
