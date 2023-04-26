@@ -128,3 +128,268 @@ exports.deleteData = (req, res, next) => {
   );
   
 };
+
+const maxInfo = [
+  {
+      "organizationCode": "1000",
+      "serialNo": 1,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "10",
+      "loanType": "10",
+      "loanCycle": 1,
+      "calculateType": "FR",
+      "startMonthNum": 0,
+      "endMonthNum": 0,
+      "loanLimitAmount": 1500000.000,
+      "loanLimitRate": 0
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 2,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "10",
+      "loanType": "10",
+      "loanCycle": 2,
+      "calculateType": "FR",
+      "startMonthNum": 0,
+      "endMonthNum": 0,
+      "loanLimitAmount": 1500000.000,
+      "loanLimitRate": 0
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 3,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "10",
+      "loanType": "10",
+      "loanCycle": 3,
+      "calculateType": "FR",
+      "startMonthNum": 0,
+      "endMonthNum": 0,
+      "loanLimitAmount": 2000000.000,
+      "loanLimitRate": 0
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 4,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "10",
+      "loanType": "20",
+      "loanCycle": 1,
+      "calculateType": "FR",
+      "startMonthNum": 0,
+      "endMonthNum": 0,
+      "loanLimitAmount": 3000000.000,
+      "loanLimitRate": 0
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 5,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "10",
+      "loanType": "20",
+      "loanCycle": 2,
+      "calculateType": "FR",
+      "startMonthNum": 0,
+      "endMonthNum": 0,
+      "loanLimitAmount": 4000000.000,
+      "loanLimitRate": 0
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 6,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "10",
+      "loanType": "20",
+      "loanCycle": 3,
+      "calculateType": "FR",
+      "startMonthNum": 0,
+      "endMonthNum": 0,
+      "loanLimitAmount": 5000000.000,
+      "loanLimitRate": 0
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 7,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "20",
+      "loanType": "",
+      "loanCycle": 0,
+      "calculateType": "IR",
+      "startMonthNum": 0,
+      "endMonthNum": 5,
+      "loanLimitAmount": 0,
+      "loanLimitRate": 0E-8
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 8,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "20",
+      "loanType": "",
+      "loanCycle": 0,
+      "calculateType": "IR",
+      "startMonthNum": 6,
+      "endMonthNum": 12,
+      "loanLimitAmount": 0,
+      "loanLimitRate": 1.50000000
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 9,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "20",
+      "loanType": "",
+      "loanCycle": 0,
+      "calculateType": "IR",
+      "startMonthNum": 13,
+      "endMonthNum": 35,
+      "loanLimitAmount": 0,
+      "loanLimitRate": 2.00000000
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 10,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "20",
+      "loanType": "",
+      "loanCycle": 0,
+      "calculateType": "IR",
+      "startMonthNum": 36,
+      "endMonthNum": 10000,
+      "loanLimitAmount": 0,
+      "loanLimitRate": 3.50000000
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 13,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "30",
+      "loanType": "",
+      "loanCycle": 3,
+      "calculateType": "FR",
+      "startMonthNum": 0,
+      "endMonthNum": 0,
+      "loanLimitAmount": 1500000.000,
+      "loanLimitRate": 0
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 11,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "30",
+      "loanType": "",
+      "loanCycle": 1,
+      "calculateType": "FR",
+      "startMonthNum": 0,
+      "endMonthNum": 0,
+      "loanLimitAmount": 800000.000,
+      "loanLimitRate": 0
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 12,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "30",
+      "loanType": "",
+      "loanCycle": 2,
+      "calculateType": "FR",
+      "startMonthNum": 0,
+      "endMonthNum": 0,
+      "loanLimitAmount": 1000000.000,
+      "loanLimitRate": 0
+  },
+  {
+      "organizationCode": "1000",
+      "serialNo": 14,
+      "createUserId": "ryg",
+      "deleteUserId": null,
+      "updateUserId": "ryg",
+      "statusCode": "01",
+      "productType": "10",
+      "loanType": "30",
+      "loanCycle": 0,
+      "calculateType": "IR",
+      "startMonthNum": 0,
+      "endMonthNum": 0,
+      "loanLimitAmount": 0,
+      "loanLimitRate": 2.00000000
+  }
+];
+
+exports.getMaxInfo = (req, res, next) => {
+  res.json({maxInfo}).end();
+}
+
+exports.getVersion = (req, res, next) => {
+
+}
+
+
+exports.getCodes = (req, res, next) => {
+
+}
+
+
+exports.getNRC = (req, res, next) => {
+
+}
+
+
+exports.getEmployee = (req, res, next) => {
+
+}
+
+
+exports.getSurvey = (req, res, next) => {
+
+}
+
+
+exports.getCustomer = (req, res, next) => {
+
+}
+
+
+exports.getIndi = (req, res, next) => {
+
+}
