@@ -17,7 +17,7 @@ app.all("*", (req, res, next) => {   next(new AppError(`The URL ${req.originalUr
 // app.listen(5000 || process.env.PORT , () => {  console.log(`server running on port 5000/ ${process.env.PORT}`); });
 
 app.set('port', process.env.PORT || 3000);
-var server = app.listen(app.get('port'), () => {   console.log('Express server listening on port ' + server.address().port);  });
+const server = app.listen(app.get('port'), () => {   console.log('Express server listening on port ' + server.address().port);  });
 
 
 // server.listen(3000);

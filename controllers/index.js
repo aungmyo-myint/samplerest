@@ -135,6 +135,17 @@ exports.deleteData = (req, res, next) => {
   
 };
 
+let a = 1500000.000
+  let b = 2000000.000
+  let c = 3000000.000
+  let d = 4000000.000
+  let e = 5000000.000
+  let f = 1.50000000 
+  let g = 2.00000000
+  let h = 3.50000000
+  let i = 800000.000
+  let j = 1000000.000
+
 const maxInfo = [
   {
       "organizationCode": "1000",
@@ -149,7 +160,7 @@ const maxInfo = [
       "calculateType": "FR",
       "startMonthNum": 0,
       "endMonthNum": 0,
-      "loanLimitAmount": 1500000.000,
+      "loanLimitAmount": a.toFixed(3),
       "loanLimitRate": 0
   },
   {
@@ -165,7 +176,7 @@ const maxInfo = [
       "calculateType": "FR",
       "startMonthNum": 0,
       "endMonthNum": 0,
-      "loanLimitAmount": 1500000.000,
+      "loanLimitAmount": a.toFixed(3),
       "loanLimitRate": 0
   },
   {
@@ -181,7 +192,7 @@ const maxInfo = [
       "calculateType": "FR",
       "startMonthNum": 0,
       "endMonthNum": 0,
-      "loanLimitAmount": 2000000.000,
+      "loanLimitAmount": b.toFixed(3),
       "loanLimitRate": 0
   },
   {
@@ -197,7 +208,7 @@ const maxInfo = [
       "calculateType": "FR",
       "startMonthNum": 0,
       "endMonthNum": 0,
-      "loanLimitAmount": 3000000.000,
+      "loanLimitAmount": c.toFixed(3),
       "loanLimitRate": 0
   },
   {
@@ -213,7 +224,7 @@ const maxInfo = [
       "calculateType": "FR",
       "startMonthNum": 0,
       "endMonthNum": 0,
-      "loanLimitAmount": 4000000.000,
+      "loanLimitAmount": d.toFixed(3),
       "loanLimitRate": 0
   },
   {
@@ -229,7 +240,7 @@ const maxInfo = [
       "calculateType": "FR",
       "startMonthNum": 0,
       "endMonthNum": 0,
-      "loanLimitAmount": 5000000.000,
+      "loanLimitAmount": e.toFixed(3),
       "loanLimitRate": 0
   },
   {
@@ -262,7 +273,7 @@ const maxInfo = [
       "startMonthNum": 6,
       "endMonthNum": 12,
       "loanLimitAmount": 0,
-      "loanLimitRate": 1.50000000
+      "loanLimitRate": f.toFixed(8)
   },
   {
       "organizationCode": "1000",
@@ -278,7 +289,7 @@ const maxInfo = [
       "startMonthNum": 13,
       "endMonthNum": 35,
       "loanLimitAmount": 0,
-      "loanLimitRate": 2.00000000
+      "loanLimitRate": g.toFixed(8)
   },
   {
       "organizationCode": "1000",
@@ -294,7 +305,7 @@ const maxInfo = [
       "startMonthNum": 36,
       "endMonthNum": 10000,
       "loanLimitAmount": 0,
-      "loanLimitRate": 3.50000000
+      "loanLimitRate": h.toFixed(8)
   },
   {
       "organizationCode": "1000",
@@ -309,7 +320,7 @@ const maxInfo = [
       "calculateType": "FR",
       "startMonthNum": 0,
       "endMonthNum": 0,
-      "loanLimitAmount": 1500000.000,
+      "loanLimitAmount": a.toFixed(3),
       "loanLimitRate": 0
   },
   {
@@ -325,7 +336,7 @@ const maxInfo = [
       "calculateType": "FR",
       "startMonthNum": 0,
       "endMonthNum": 0,
-      "loanLimitAmount": 800000.000,
+      "loanLimitAmount": i.toFixed(3),
       "loanLimitRate": 0
   },
   {
@@ -341,7 +352,7 @@ const maxInfo = [
       "calculateType": "FR",
       "startMonthNum": 0,
       "endMonthNum": 0,
-      "loanLimitAmount": 1000000.000,
+      "loanLimitAmount": i.toFixed(3),
       "loanLimitRate": 0
   },
   {
@@ -358,7 +369,7 @@ const maxInfo = [
       "startMonthNum": 0,
       "endMonthNum": 0,
       "loanLimitAmount": 0,
-      "loanLimitRate": 2.00000000
+      "loanLimitRate": g.toFixed(8)
   }
 ];
 
@@ -366,6 +377,7 @@ exports.getMaxInfo = (req, res, next) => {
   console.log("Getting info for loan max info")
   res.json(maxInfo).end();
 }
+
 
 const appVersion = {"releaseNotes":["-Fix bug"],"latestVersion":"0.2.5","latestVersionCode":21,"url":"http:\/\/192.168.177.107:8080\/skylark-m3s\/api\/downloadFile.m3s"}   
 exports.getVersion = (req, res, next) => {
@@ -547,14 +559,26 @@ exports.getSurvey = (req, res, next) => {
 }
 
 
+function format (date) {  
+  if (!(date instanceof Date)) {
+    throw new Error('Invalid "date" argument. You must pass a date instance')
+  }
+
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+
+  return `${year}-${month}-${day}`
+}
+
 const customer = [
   {
       "organizationCode": "1000",
       "serialNo": 56,
       "statusCode": "01",
-      "createDatetime": 2020-11-16,
+      "createDatetime": format(new Date("2020-11-16") ),
       "deleteDatetime": null,
-      "updateDatetime": 2020-11-16,
+      "updateDatetime": format(new date("2020-11-16")),
       "studentsCnt": 3,
       "createUserId": "ryg",
       "deleteUserId": null,
@@ -642,9 +666,9 @@ const customer = [
       "organizationCode": "1000",
       "serialNo": 57,
       "statusCode": "01",
-      "createDatetime": 2020-11-16,
+      "createDatetime": format(new date("2020-11-16")),
       "deleteDatetime": null,
-      "updateDatetime": 2020-11-16,
+      "updateDatetime": format(new date("2020-11-16")),
       "studentsCnt": 3,
       "createUserId": "ryg",
       "deleteUserId": null,
